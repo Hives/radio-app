@@ -1,15 +1,15 @@
 const express = require('express');
 const cors = require('cors');
-const app = express();
-
-const MPlayer = require('mplayer');
-const player = new MPlayer();
-
+const MPlayer = require('./lib/mplayer');
 const stations = require('./config.json');
+
+const app = express();
 
 const port = 1234;
 
 app.use(cors());
+
+const player = new MPlayer();
 
 app.get('/', (req, res) => res.send('Hello World!'));
 
@@ -19,14 +19,15 @@ app.get('/stations', (req, res) => {
 });
 
 app.get('/play', (req, res) => {
-  const station = req.query.station;
-  console.log('playing station ' + station);
-  player.stop();
-  player.openFile(stations[station]);
+  const {station} = req.query;
+  const {stream} = stations[station];
+  console.log(`playing ${station}: ${stream}`);
+  player.setSource(stream);
   res.send();
 });
 
 app.get('/stop', (req, res) => {
+  console.log('stopping');
   player.stop();
   res.send();
 });
