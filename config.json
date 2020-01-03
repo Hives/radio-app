@@ -2,76 +2,91 @@
   {
     "name": "Resonance FM",
     "stream": "http://stream.resonance.fm:8000/resonance",
+    "website": "https://www.resonancefm.com/",
     "tags": ["art", "music"]
   },
   {
     "name": "BBC Radio 1",
     "stream": "http://a.files.bbci.co.uk/media/live/manifesto/audio/simulcast/hls/uk/sbr_high/ak/bbc_radio_one.m3u8",
+    "website": "https://www.bbc.co.uk/radio1",
     "tags": ["bbc", "music"]
   },
   {
     "name": "BBC Radio 1Xtra",
     "stream": "http://a.files.bbci.co.uk/media/live/manifesto/audio/simulcast/hls/uk/sbr_high/ak/bbc_1xtra.m3u8",
+    "website": "https://www.bbc.co.uk/1xtra",
     "tags": ["bbc", "music"]
   },
   {
     "name": "BBC Radio 2",
     "stream": "http://a.files.bbci.co.uk/media/live/manifesto/audio/simulcast/hls/uk/sbr_high/ak/bbc_radio_two.m3u8",
+    "website": "https://www.bbc.co.uk/radio2",
     "tags": ["bbc", "music"]
   },
   {
     "name": "BBC Radio 3",
     "stream": "http://a.files.bbci.co.uk/media/live/manifesto/audio/simulcast/hls/uk/sbr_high/ak/bbc_radio_three.m3u8",
+    "website": "https://www.bbc.co.uk/radio3",
     "tags": ["bbc", "music"]
   },
   {
     "name": "BBC Radio 4",
     "stream": "http://a.files.bbci.co.uk/media/live/manifesto/audio/simulcast/hls/uk/sbr_high/ak/bbc_radio_fourfm.m3u8",
+    "website": "https://www.bbc.co.uk/radio4",
     "tags": ["bbc", "news"]
   },
   {
     "name": "BBC Radio 4LW",
     "stream": "http://a.files.bbci.co.uk/media/live/manifesto/audio/simulcast/hls/uk/sbr_high/ak/bbc_radio_fourlw.m3u8",
+    "website": "https://www.bbc.co.uk/radio4",
     "tags": ["bbc"]
   },
   {
     "name": "BBC Radio 4 Extra",
     "stream": "http://a.files.bbci.co.uk/media/live/manifesto/audio/simulcast/hls/uk/sbr_high/ak/bbc_radio_four_extra.m3u8",
+    "website": "https://www.bbc.co.uk/radio4extra",
     "tags": ["bbc"]
   },
   {
     "name": "BBC Radio 5 Live",
     "stream": "http://a.files.bbci.co.uk/media/live/manifesto/audio/simulcast/hls/uk/sbr_high/ak/bbc_radio_five_live.m3u8",
+    "website": "https://www.bbc.co.uk/5live",
     "tags": ["bbc", "sport"]
   },
   {
     "name": "BBC Radio 5 Live Sports Extra",
     "stream": "http://a.files.bbci.co.uk/media/live/manifesto/audio/simulcast/hls/uk/sbr_high/ak/bbc_radio_five_live_sports_extra.m3u8",
+    "website": "https://www.bbc.co.uk/5sportsextra",
     "tags": ["bbc", "sport"]
   },
   {
     "name": "BBC Radio 6 Music",
     "stream": "http://a.files.bbci.co.uk/media/live/manifesto/audio/simulcast/hls/uk/sbr_high/ak/bbc_6music.m3u8",
+    "website": "https://www.bbc.co.uk/6music",
     "tags": ["bbc", "music"]
-  },
-  {
-    "name": "BBC Asian Network",
-    "stream": "http://a.files.bbci.co.uk/media/live/manifesto/audio/simulcast/hls/uk/sbr_high/ak/bbc_asian_network.m3u8",
-    "tags": ["bbc"]
   },
   {
     "name": "Intergalactic FM 1: CBS",
     "stream": "http://radio.intergalactic.fm/1",
+    "website": "https://www.intergalactic.fm/",
     "tags": ["music"]
   },
   {
     "name": "Intergalactic FM 2: Disco Fetish",
     "stream": "http://radio.intergalactic.fm/2",
+    "website": "https://www.intergalactic.fm/",
     "tags": ["music"]
   },
   {
     "name": "Intergalactic FM 3: Dream Machine",
     "stream": "http://radio.intergalactic.fm/3",
+    "website": "https://www.intergalactic.fm/",
+    "tags": ["music"]
+  },
+  {
+    "name": "WFMU",
+    "stream": "http://stream0.wfmu.org/freeform-128k.mp3",
+    "website": "https://wfmu.org/",
     "tags": ["music"]
   }
 ]
