@@ -9,16 +9,22 @@ const Status = () => {
     api.getStatus().then(newStatus => setStatus(newStatus));
   }, 2000);
 
-  if (status) {
-    return (
-      <div>
-        <h2>
-          {status.isPlaying ? `Playing ${status.station.name}` : '~silencio~'}
-        </h2>
-      </div>
-    );
+  if (!status) {
+    return <div>loadin...</div>;
   }
-  return <div>loadin...</div>;
+
+  if (!status.isPlaying) {
+    return <h2>~silencio~</h2>;
+  }
+
+  return (
+    <div>
+      <h2>Playing {status.station.name}</h2>
+      <a href={status.station.website} target="_blank">
+        Station website
+      </a>
+    </div>
+  );
 };
 
 export default Status;
