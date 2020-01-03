@@ -4,18 +4,16 @@ import * as api from '../../api';
 
 const Controls = ({stations}) => {
   return (
-    <>
+    <div>
       <ul>
         {stations.map(station => (
-          <li>
-            <button key={station} onClick={e => api.playStation(station)}>
-              {station}
-            </button>
+          <li key={station}>
+            <button onClick={e => api.playStation(station)}>{station}</button>
           </li>
         ))}
       </ul>
       <button onClick={e => api.stopPlaying()}>Stop</button>
-    </>
+    </div>
   );
 };
 
