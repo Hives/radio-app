@@ -1,29 +1,70 @@
-{
-  "Resonance FM": {
-    "stream": "http://stream.resonance.fm:8000/resonance"
+[
+  {
+    "name": "Resonance FM",
+    "stream": "http://stream.resonance.fm:8000/resonance",
+    "tags": [
+      "art",
+      "music"
+    ]
   },
-  "BBC Radio 2": {
-    "stream": "http://a.files.bbci.co.uk/media/live/manifesto/audio/simulcast/hls/uk/sbr_high/ak/bbc_radio_two.m3u8"
+  {
+    "name": "BBC Radio 2",
+    "stream": "http://a.files.bbci.co.uk/media/live/manifesto/audio/simulcast/hls/uk/sbr_high/ak/bbc_radio_two.m3u8",
+    "tags": [
+      "bbc",
+      "music"
+    ]
   },
-  "BBC Radio 3": {
-    "stream": "http://a.files.bbci.co.uk/media/live/manifesto/audio/simulcast/hls/uk/sbr_high/ak/bbc_radio_three.m3u8"
+  {
+    "name": "BBC Radio 3",
+    "stream": "http://a.files.bbci.co.uk/media/live/manifesto/audio/simulcast/hls/uk/sbr_high/ak/bbc_radio_three.m3u8",
+    "tags": [
+      "bbc",
+      "music"
+    ]
   },
-  "BBC Radio 4": {
-    "stream": "http://a.files.bbci.co.uk/media/live/manifesto/audio/simulcast/hls/uk/sbr_high/ak/bbc_radio_fourfm.m3u8"
+  {
+    "name": "BBC Radio 4",
+    "stream": "http://a.files.bbci.co.uk/media/live/manifesto/audio/simulcast/hls/uk/sbr_high/ak/bbc_radio_fourfm.m3u8",
+    "tags": [
+      "bbc",
+      "news"
+    ]
   },
-  "BBC Radio 4LW": {
-    "stream": "http://a.files.bbci.co.uk/media/live/manifesto/audio/simulcast/hls/uk/sbr_high/ak/bbc_radio_fourlw.m3u8"
+  {
+    "name": "BBC Radio 4LW",
+    "stream": "http://a.files.bbci.co.uk/media/live/manifesto/audio/simulcast/hls/uk/sbr_high/ak/bbc_radio_fourlw.m3u8",
+    "tags": [
+      "bbc"
+    ]
   },
-  "BBC Radio 6 Music": {
-    "stream": "http://a.files.bbci.co.uk/media/live/manifesto/audio/simulcast/hls/uk/sbr_high/ak/bbc_6music.m3u8"
+  {
+    "name": "BBC Radio 6 Music",
+    "stream": "http://a.files.bbci.co.uk/media/live/manifesto/audio/simulcast/hls/uk/sbr_high/ak/bbc_6music.m3u8",
+    "tags": [
+      "bbc",
+      "music"
+    ]
   },
-  "Intergalactic FM 1: CBS": {
-    "stream": "http://radio.intergalactic.fm/1"
+  {
+    "name": "Intergalactic FM 1: CBS",
+    "stream": "http://radio.intergalactic.fm/1",
+    "tags": [
+      "music"
+    ]
   },
-  "Intergalactic FM 2: Disco Fetish": {
-    "stream": "http://radio.intergalactic.fm/2"
+  {
+    "name": "Intergalactic FM 2: Disco Fetish",
+    "stream": "http://radio.intergalactic.fm/2",
+    "tags": [
+      "music"
+    ]
   },
-  "Intergalactic FM 3: Dream Machine": {
-    "stream": "http://radio.intergalactic.fm/3"
+  {
+    "name": "Intergalactic FM 3: Dream Machine",
+    "stream": "http://radio.intergalactic.fm/3",
+    "tags": [
+      "music"
+    ]
   }
-}
+]
