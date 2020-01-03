@@ -7,12 +7,13 @@ const Controls = ({stations}) => {
     <div>
       <ul>
         {stations.map(station => (
-          <li key={station}>
-            <button onClick={e => api.playStation(station)}>{station}</button>
+          <li key={station.id}>
+            <button onClick={e => api.playStation(station.id)}>
+              {station.name}
+            </button>
           </li>
         ))}
       </ul>
-      <button onClick={e => api.stopPlaying()}>Stop</button>
     </div>
   );
 };
