@@ -1,5 +1,4 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import * as api from '../../api';
 
 const Controls = ({stations}) => {
@@ -16,10 +15,6 @@ const Controls = ({stations}) => {
       </ul>
     </div>
   );
-};
-
-Controls.propTypes = {
-  stations: PropTypes.arrayOf(PropTypes.string).isRequired,
 };
 
 export default Controls;
