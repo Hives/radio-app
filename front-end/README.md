@@ -1,4 +1,4 @@
-# Pauly's radio app, front end
+# Paul's radio app, front end
 
 Install with `yarn`.
 

@@ -1,6 +1,6 @@
 # Pauly's radio app, back end
 
-`yarn`, `yarn start:dev` etc.
+`yarn`, `yarn start:dev`, `yarn start` etc.
 
 ## Resources
 
