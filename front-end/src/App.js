@@ -16,15 +16,18 @@ function App() {
   return (
     <Router>
       <div className="App">
-        <h1>Pauly's radio</h1>
+        <header>
+          <h1>Pauly's radio</h1>
+        </header>
         <Status />
-        <Link to="/tags">View all tags</Link>
+        <section>
+          <Link to="/tags">View station tags</Link>
+        </section>
         <Switch>
           <Route path="/tags" component={Tags} />
           <Route path="/tag/:tag" component={Stations} />
           <Redirect exact from="/" to="/tags" />
         </Switch>
-        <button onClick={e => api.stopPlaying()}>Stop</button>
       </div>
     </Router>
   );

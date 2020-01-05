@@ -10,7 +10,7 @@ const Tags = () => {
   }, []);
 
   return (
-    <div>
+    <section>
       <h3>Tags</h3>
       <ul>
         {tags.map(tag => (
@@ -19,7 +19,7 @@ const Tags = () => {
           </li>
         ))}
       </ul>
-    </div>
+    </section>
   );
 };
 

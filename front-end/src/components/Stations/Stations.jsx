@@ -12,10 +12,10 @@ const Stations = () => {
   }, [tag]);
 
   return (
-    <div>
+    <section>
       <h3>Tagged with "{tag}"</h3>
       <Controls stations={stations} />
-    </div>
+    </section>
   );
 };
 
