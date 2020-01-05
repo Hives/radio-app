@@ -1,4 +1,7 @@
-const apiUrl = 'http://192.168.0.36:1234';
+const serverIp = process.env.REACT_APP_SERVER_IP || 'localhost';
+const serverPort = 1234;
+
+const apiUrl = `http://${serverIp}:${serverPort}`;
 
 export const getTags = () => fetch(`${apiUrl}/tags`).then(res => res.json());
 

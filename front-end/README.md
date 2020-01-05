@@ -6,4 +6,10 @@ Run the dev server with `yarn start`
 
 Create a production build at `build/`: `yarn build`
 
-Serve the production build on a particular port: `yarn serve -l 3000`
+Serve the build on the default port of 3000: `yarn serve`
+
+## Environment variables
+
+The address of the api defaults to `localhost`. To connect over the network
+you'll need to set the environment variable `REACT_APP_SERVER_IP` to the correct
+ip address.

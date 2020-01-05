@@ -11,7 +11,7 @@ const Tags = () => {
 
   return (
     <section>
-      <h3>Tags</h3>
+      <h3>Station tags</h3>
       <ul>
         {tags.map(tag => (
           <li key={tag}>
