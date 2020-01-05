@@ -88,5 +88,17 @@
     "stream": "http://stream0.wfmu.org/freeform-128k.mp3",
     "website": "https://wfmu.org/",
     "tags": ["music"]
+  },
+  {
+    "name": "NTS 1",
+    "stream": "http://stream-relay-geo.ntslive.net/stream",
+    "website": "https://www.nts.live/",
+    "tags": ["music"]
+  },
+  {
+    "name": "NTS 2",
+    "stream": "http://stream-relay-geo.ntslive.net/stream2",
+    "website": "https://www.nts.live/",
+    "tags": ["music"]
   }
 ]
