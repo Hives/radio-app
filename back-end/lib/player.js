@@ -11,12 +11,12 @@ class Player {
 
   playStation(station) {
     this._cmd(`loadfile ${station.stream}`);
-    this._setStatus({isPlaying: true, station});
+    this._setStatus({isPlaying: true, source: {station}});
   }
 
   stop() {
     this._cmd('stop');
-    this._setStatus({isPlaying: false, station: undefined});
+    this._setStatus({isPlaying: false});
   }
 
   _onStdOut(data) {
@@ -27,8 +27,8 @@ class Player {
     console.error(`>>>> instance stderr:\n${data}>>>> ENDS`);
   }
 
-  _setStatus(params) {
-    this.status = {...this.status, ...params};
+  _setStatus(status) {
+    this.status = {...status};
   }
 
   _cmd(command) {

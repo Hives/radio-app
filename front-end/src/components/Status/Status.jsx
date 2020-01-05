@@ -10,20 +10,29 @@ const Status = () => {
   }, 2000);
 
   if (!status) {
-    return <div>loadin...</div>;
+    return <section>loadin...</section>;
   }
 
   if (!status.isPlaying) {
-    return <h2>~silencio~</h2>;
+    return (
+      <section>
+        <h2>~silencio~</h2>
+      </section>
+    );
   }
 
+  const details = status.source.station;
+
   return (
-    <div>
-      <h2>Playing {status.station.name}</h2>
-      <a href={status.station.website} target="_blank">
-        Station website
-      </a>
-    </div>
+    <section>
+      <h2>Playing {details.name}</h2>
+      <p>
+        <a href={details.website} target="_blank">
+          {details.website}
+        </a>
+      </p>
+      <button onClick={e => api.stopPlaying()}>Stop</button>
+    </section>
   );
 };
 
