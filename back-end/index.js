@@ -37,6 +37,22 @@ app.delete('/player/source', (req, res) => {
   res.send();
 });
 
+app.get('/player/commands', (req, res) => {
+  if (req.query.cmd === 'volume') {
+    switch (req.query.volume) {
+      case 'minus': {
+        player.decreaseVolume();
+        break;
+      }
+      case 'plus': {
+        player.increaseVolume();
+        break;
+      }
+    }
+  }
+  res.send(req.query.cmd);
+});
+
 app.get('/player/status', (req, res) => {
   res.send(player.status);
 });

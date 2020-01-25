@@ -19,6 +19,14 @@ class Player {
     this._setStatus({isPlaying: false});
   }
 
+  decreaseVolume() {
+    this._cmd('volume -1');
+  }
+
+  increaseVolume() {
+    this._cmd('volume 1');
+  }
+
   _onStdOut(data) {
     console.log(`instance stdout: ${data}`);
   }
