@@ -20,5 +20,11 @@ export const playStation = id =>
     body: JSON.stringify({stationId: id}),
   });
 
+export const decreaseVolume = () =>
+  fetch(`${apiUrl}/player/commands?cmd=volume&volume=minus`);
+
+export const increaseVolume = () =>
+  fetch(`${apiUrl}/player/commands?cmd=volume&volume=plus`);
+
 export const stopPlaying = () =>
   fetch(`${apiUrl}/player/source`, {method: 'DELETE'});
