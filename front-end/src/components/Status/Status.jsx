@@ -33,6 +33,7 @@ const Status = () => {
       </p>
       <div>
         <button onClick={e => api.decreaseVolume()}>Vol -</button>
+        {status.volume && <span>{status.volume}</span>}
         <button onClick={e => api.increaseVolume()}>Vol +</button>
       </div>
       <button onClick={e => api.stopPlaying()}>Stop</button>

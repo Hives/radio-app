@@ -14,25 +14,25 @@ const player = new Player();
 app.get('/', (req, res) => res.send('Hello World!'));
 
 app.get('/tags', (req, res) => {
-  console.log('getting tags');
+  // console.log('getting tags');
   res.send(getUniqueTags());
 });
 
 app.get('/stations', (req, res) => {
-  console.log('getting stationData');
+  // console.log('getting stationData');
   res.send(getStations(req.query));
 });
 
 app.put('/player/source', (req, res) => {
   const {stationId} = req.body;
   const station = getStation(stationId);
-  console.log(`playing ${station.name}: ${station.stream}`);
+  // console.log(`playing ${station.name}: ${station.stream}`);
   player.playStation(station);
   res.send();
 });
 
 app.delete('/player/source', (req, res) => {
-  console.log('stopping');
+  // console.log('stopping');
   player.stop();
   res.send();
 });
@@ -58,5 +58,5 @@ app.get('/player/status', (req, res) => {
 });
 
 app.listen(port, () => {
-  console.log(`Radio server listening on port ${port}!`);
+  // console.log(`Radio server listening on port ${port}!`);
 });
