@@ -8,10 +8,10 @@ class Player {
     this._setStatus({isPlaying: false});
 
     this._stdout = readline.createInterface({input: this.instance.stdout});
-    this._stdout.on('line', line => this._onStdOut(line));
+    this._stdout.on('line', line => this._onOutput(line));
 
     this._stderr = readline.createInterface({input: this.instance.stderr});
-    this._stderr.on('line', line => this._onStdErr(line));
+    this._stderr.on('line', line => this._onOutput(line));
   }
 
   playStation(station) {
@@ -32,16 +32,12 @@ class Player {
     this._cmd('volume 1');
   }
 
-  _onStdOut(line) {
+  _onOutput(line) {
     console.log(line);
 
     if (line.includes('Volume')) {
       this._setStatus({volume: line.split(' ')[1]});
     }
-  }
-
-  _onStdErr(line) {
-    console.error(`>>>> instance stderr:\n${line}\n>>>> ENDS`);
   }
 
   _setStatus(status) {
