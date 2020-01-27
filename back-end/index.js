@@ -14,32 +14,30 @@ const player = new Player();
 app.get('/', (req, res) => res.send('Hello World!'));
 
 app.get('/tags', (req, res) => {
-  // console.log('getting tags');
   res.send(getUniqueTags());
 });
 
 app.get('/stations', (req, res) => {
-  // console.log('getting stationData');
   res.send(getStations(req.query));
 });
 
 app.put('/player/source', (req, res) => {
   const {stationId} = req.body;
   const station = getStation(stationId);
-  // console.log(`playing ${station.name}: ${station.stream}`);
   player.playStation(station);
   res.send();
 });
 
 app.delete('/player/source', (req, res) => {
-  // console.log('stopping');
   player.stop();
   res.send();
 });
 
 app.get('/player/commands', (req, res) => {
   if (req.query.cmd === 'volume') {
-    switch (req.query.volume) {
+    const {volume} = req.query;
+
+    switch (volume) {
       case 'minus': {
         player.decreaseVolume();
         break;
@@ -48,15 +46,22 @@ app.get('/player/commands', (req, res) => {
         player.increaseVolume();
         break;
       }
+      default: {
+        if (Number.isInteger(parseInt(volume))) {
+          player.setVolume(parseInt(volume));
+        }
+      }
     }
+
+    res.send({volume: player.getStatus().volume});
   }
-  res.send(req.query.cmd);
+  res.send();
 });
 
 app.get('/player/status', (req, res) => {
-  res.send(player.status);
+  res.send(player.getStatus());
 });
 
 app.listen(port, () => {
-  // console.log(`Radio server listening on port ${port}!`);
+  console.log(`Radio server listening on port ${port}!`);
 });

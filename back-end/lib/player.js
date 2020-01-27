@@ -3,9 +3,12 @@ const readline = require('readline');
 
 class Player {
   constructor() {
-    const initialArgs = ['-idle', '-slave'];
+    const initialVolume = 100;
+    this._volumeIncrement = 2;
+
+    const initialArgs = ['-idle', '-slave', '-volume', initialVolume];
     this.instance = spawn('mplayer', initialArgs);
-    this._setStatus({isPlaying: false});
+    this._setStatus({isPlaying: false, volume: initialVolume});
 
     this._stdout = readline.createInterface({input: this.instance.stdout});
     this._stdout.on('line', line => this._onOutput(line));
@@ -25,23 +28,29 @@ class Player {
   }
 
   decreaseVolume() {
-    this._cmd('volume -1');
+    this.setVolume(this._status.volume - this._volumeIncrement);
   }
 
   increaseVolume() {
-    this._cmd('volume 1');
+    this.setVolume(this._status.volume + this._volumeIncrement);
+  }
+
+  setVolume(level) {
+    const newVolume = Math.min(Math.max(level, 0), 100);
+    this._cmd(`volume ${level} 1`);
+    this._setStatus({volume: newVolume});
+  }
+
+  getStatus() {
+    return this._status;
   }
 
   _onOutput(line) {
     console.log(line);
-
-    if (line.includes('Volume')) {
-      this._setStatus({volume: line.split(' ')[1]});
-    }
   }
 
-  _setStatus(status) {
-    this.status = {...this.status, ...status};
+  _setStatus(update) {
+    this._status = {...this._status, ...update};
   }
 
   _cmd(command) {

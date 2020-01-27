@@ -21,10 +21,14 @@ export const playStation = id =>
   });
 
 export const decreaseVolume = () =>
-  fetch(`${apiUrl}/player/commands?cmd=volume&volume=minus`);
+  fetch(`${apiUrl}/player/commands?cmd=volume&volume=minus`).then(res =>
+    res.json(),
+  );
 
 export const increaseVolume = () =>
-  fetch(`${apiUrl}/player/commands?cmd=volume&volume=plus`);
+  fetch(`${apiUrl}/player/commands?cmd=volume&volume=plus`).then(res =>
+    res.json(),
+  );
 
 export const stopPlaying = () =>
   fetch(`${apiUrl}/player/source`, {method: 'DELETE'});
