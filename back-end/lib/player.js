@@ -1,10 +1,12 @@
 const {spawn} = require('child_process');
 const readline = require('readline');
 
+const initialVolume = 50;
+const volumeIncrement = 2;
+
 class Player {
   constructor() {
-    const initialVolume = 100;
-    this._volumeIncrement = 2;
+    this._volumeIncrement = volumeIncrement;
 
     const initialArgs = ['-idle', '-slave', '-volume', initialVolume];
     this.instance = spawn('mplayer', initialArgs);
@@ -18,7 +20,8 @@ class Player {
   }
 
   playStation(station) {
-    this._cmd(`loadfile ${station.stream}`);
+    this._cmd(`loadfile ${station.stream} volume ${this._status.volume} 1`);
+    this.setVolume(this._status.volume);
     this._setStatus({isPlaying: true, source: {station}});
   }
 
