@@ -19,8 +19,9 @@ class Player {
     }
 
     this._execWithLogging(
-      `mplayer -idle -slave -input file=${this._fifo} -volume ${INITIAL_VOLUME}`
+      `mplayer -idle -slave -input file=${this._fifo} -volume 100`
     );
+    this.setVolume(INITIAL_VOLUME);
     this._setStatus({ isPlaying: false, volume: INITIAL_VOLUME });
   }
 
@@ -30,7 +31,6 @@ class Player {
 
   playStation(station) {
     this._cmd(`loadfile ${station.stream}`);
-    this.setVolume(this._status.volume);
     this._setStatus({ isPlaying: true, source: { station } });
   }
 
