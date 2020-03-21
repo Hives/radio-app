@@ -45,7 +45,7 @@ const Status = () => {
       </p>
       <div className={classes.volume}>
         <button onClick={decreaseVolume}>Vol -</button>
-        {status.volume && <span>{status.volume}</span>}
+        {status.volume !== undefined && <span>{status.volume}</span>}
         <button onClick={increaseVolume}>Vol +</button>
       </div>
       <button onClick={e => api.stopPlaying()}>Stop</button>
