@@ -1,7 +1,7 @@
-const express = require('express');
-const cors = require('cors');
-const Player = require('./lib/player');
-const {getUniqueTags, getStations, getStation} = require('./lib/data');
+const express = require("express");
+const cors = require("cors");
+const Player = require("./lib/player");
+const { getUniqueTags, getStations, getStation } = require("./lib/data");
 const app = express();
 
 const port = 1234;
@@ -11,38 +11,38 @@ app.use(express.json());
 
 const player = new Player();
 
-app.get('/', (req, res) => res.send('Hello World!'));
+app.get("/", (req, res) => res.send("Hello World!"));
 
-app.get('/tags', (req, res) => {
+app.get("/tags", (req, res) => {
   res.send(getUniqueTags());
 });
 
-app.get('/stations', (req, res) => {
+app.get("/stations", (req, res) => {
   res.send(getStations(req.query));
 });
 
-app.put('/player/source', (req, res) => {
-  const {stationId} = req.body;
+app.put("/player/source", (req, res) => {
+  const { stationId } = req.body;
   const station = getStation(stationId);
   player.playStation(station);
   res.send();
 });
 
-app.delete('/player/source', (req, res) => {
+app.delete("/player/source", (req, res) => {
   player.stop();
   res.send();
 });
 
-app.get('/player/commands', (req, res) => {
-  if (req.query.cmd === 'volume') {
-    const {volume} = req.query;
+app.get("/player/commands", (req, res) => {
+  if (req.query.cmd === "volume") {
+    const { volume } = req.query;
 
     switch (volume) {
-      case 'minus': {
+      case "minus": {
         player.decreaseVolume();
         break;
       }
-      case 'plus': {
+      case "plus": {
         player.increaseVolume();
         break;
       }
@@ -53,12 +53,14 @@ app.get('/player/commands', (req, res) => {
       }
     }
 
-    res.send({volume: player.getStatus().volume});
+    res.send({ volume: player.getStatus().volume });
+  } else {
+    console.error(`Command not known: ${req.query.cmd}`);
+    res.send();
   }
-  res.send();
 });
 
-app.get('/player/status', (req, res) => {
+app.get("/player/status", (req, res) => {
   res.send(player.getStatus());
 });
 
