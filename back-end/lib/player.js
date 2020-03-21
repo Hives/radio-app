@@ -7,7 +7,7 @@ const MIN_VOLUME = 00;
 const MAX_VOLUME = 100;
 const VOLUME_INCREMENT = 2;
 const FIFO_PATH = "/tmp/radio-fifo-file";
-const SIMPLE_MIXER_CONTROL = "Speaker";
+const SIMPLE_MIXER_CONTROL = "Master";
 
 class Player {
   constructor() {
