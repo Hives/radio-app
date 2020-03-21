@@ -1,4 +1,4 @@
-const serverIp = process.env.REACT_APP_SERVER_IP || 'localhost';
+const serverIp = process.env.REACT_APP_SERVER_IP || "localhost";
 const serverPort = 1234;
 
 const apiUrl = `http://${serverIp}:${serverPort}`;
@@ -13,22 +13,22 @@ export const getStatus = () =>
 
 export const playStation = id =>
   fetch(`${apiUrl}/player/source`, {
-    method: 'PUT',
+    method: "PUT",
     headers: {
-      'Content-Type': 'application/json',
+      "Content-Type": "application/json"
     },
-    body: JSON.stringify({stationId: id}),
+    body: JSON.stringify({ stationId: id })
   });
 
 export const decreaseVolume = () =>
   fetch(`${apiUrl}/player/commands?cmd=volume&volume=minus`).then(res =>
-    res.json(),
+    res.json()
   );
 
 export const increaseVolume = () =>
   fetch(`${apiUrl}/player/commands?cmd=volume&volume=plus`).then(res =>
-    res.json(),
+    res.json()
   );
 
 export const stopPlaying = () =>
-  fetch(`${apiUrl}/player/source`, {method: 'DELETE'});
+  fetch(`${apiUrl}/player/source`, { method: "DELETE" });

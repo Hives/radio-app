@@ -1,16 +1,15 @@
-import React from 'react';
+import React from "react";
 import {
   BrowserRouter as Router,
   Switch,
   Redirect,
   Route,
-  Link,
-} from 'react-router-dom';
-import Stations from './components/Stations/Stations';
-import Status from './components/Status/Status';
-import Tags from './components/Tags/Tags';
-import * as api from './api';
-import './App.css';
+  Link
+} from "react-router-dom";
+import Stations from "./components/Stations/Stations";
+import Status from "./components/Status/Status";
+import Tags from "./components/Tags/Tags";
+import "./App.css";
 
 function App() {
   return (

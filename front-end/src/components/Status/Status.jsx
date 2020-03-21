@@ -1,8 +1,8 @@
-import React, {useState} from 'react';
-import useInterval from '../../utils/event.util';
-import * as api from '../../api';
+import React, { useState } from "react";
+import useInterval from "../../utils/event.util";
+import * as api from "../../api";
 
-import classes from './Status.module.css';
+import classes from "./Status.module.css";
 
 const Status = () => {
   const [status, setStatus] = useState();
@@ -14,12 +14,12 @@ const Status = () => {
   const increaseVolume = async () =>
     api
       .increaseVolume()
-      .then(res => setStatus({...status, volume: res.volume}));
+      .then(res => setStatus({ ...status, volume: res.volume }));
 
   const decreaseVolume = async () =>
     api
       .decreaseVolume()
-      .then(res => setStatus({...status, volume: res.volume}));
+      .then(res => setStatus({ ...status, volume: res.volume }));
 
   if (!status) {
     return <section>loadin...</section>;
@@ -39,7 +39,7 @@ const Status = () => {
     <section>
       <h2>Playing {details.name}</h2>
       <p>
-        <a href={details.website} target="_blank">
+        <a href={details.website} target="_blank" rel="noopener noreferrer">
           {details.website}
         </a>
       </p>
