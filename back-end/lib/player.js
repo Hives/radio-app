@@ -66,13 +66,14 @@ class Player {
   }
 
   _execWithLogging(command) {
-    console.log(`command: ${command}`);
     exec(command, (error, stdout, stderr) => {
       if (error) {
+        console.log(`command: ${command}`);
         console.log(`error: ${error.message}`);
         return;
       }
       if (stderr) {
+        console.log(`command: ${command}`);
         console.log(`stderr: ${stderr}`);
         return;
       }
