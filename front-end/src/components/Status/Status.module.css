@@ -4,9 +4,10 @@
   width: 100%;
   margin-bottom: 10px;
 }
-.volume > * {
-  margin-right: 10px;
+.volumeLevel {
+  width: 3em;
 }
 .volumeSlider {
   width: 100%;
+  margin: 0 10px;
 }

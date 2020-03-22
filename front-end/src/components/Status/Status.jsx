@@ -53,7 +53,10 @@ const Status = () => {
         </a>
       </p>
       <div className={classes.volume}>
-        Vol:&nbsp;{status.volume !== undefined && <span>{status.volume}</span>}
+        Vol:&nbsp;
+        {status.volume !== undefined && (
+          <div className={classes.volumeLevel}>{status.volume}</div>
+        )}
         <button onClick={decreaseVolume}>-</button>
         <input
           className={classes.volumeSlider}
