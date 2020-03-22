@@ -30,5 +30,10 @@ export const increaseVolume = () =>
     res.json()
   );
 
+export const setVolume = level =>
+  fetch(`${apiUrl}/player/commands?cmd=volume&volume=${level}`).then(res =>
+    res.json()
+  );
+
 export const stopPlaying = () =>
   fetch(`${apiUrl}/player/source`, { method: "DELETE" });

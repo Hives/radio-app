@@ -1,6 +1,12 @@
 .volume {
+  display: flex;
+  align-items: center;
+  width: 100%;
   margin-bottom: 10px;
 }
 .volume > * {
   margin-right: 10px;
+}
+.volumeSlider {
+  width: 100%;
 }

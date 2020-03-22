@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+
 import useInterval from "../../utils/event.util";
 import * as api from "../../api";
 
@@ -8,7 +9,9 @@ const Status = () => {
   const [status, setStatus] = useState();
 
   useInterval(() => {
-    api.getStatus().then(newStatus => setStatus(newStatus));
+    api.getStatus().then(newStatus => {
+      return setStatus(newStatus);
+    });
   }, 2000);
 
   const increaseVolume = async () =>
@@ -20,6 +23,12 @@ const Status = () => {
     api
       .decreaseVolume()
       .then(res => setStatus({ ...status, volume: res.volume }));
+
+  const updateVolume = event => {
+    api
+      .setVolume(event.target.value)
+      .then(res => setStatus({ ...status, volume: res.volume }));
+  };
 
   if (!status) {
     return <section>loadin...</section>;
@@ -44,9 +53,19 @@ const Status = () => {
         </a>
       </p>
       <div className={classes.volume}>
-        <button onClick={decreaseVolume}>Vol -</button>
-        {status.volume !== undefined && <span>{status.volume}</span>}
-        <button onClick={increaseVolume}>Vol +</button>
+        Vol:&nbsp;{status.volume !== undefined && <span>{status.volume}</span>}
+        <button onClick={decreaseVolume}>-</button>
+        <input
+          className={classes.volumeSlider}
+          onChange={updateVolume}
+          type="range"
+          value={status.volume}
+          id="volume"
+          name="volume"
+          min="0"
+          max="100"
+        />
+        <button onClick={increaseVolume}>+</button>
       </div>
       <button onClick={e => api.stopPlaying()}>Stop</button>
     </section>
