@@ -1,4 +1,5 @@
 const { spawn, exec } = require("child_process");
+const readline = require("readline");
 
 const INITIAL_VOLUME = 50;
 const MIN_VOLUME = 0;
@@ -8,10 +9,16 @@ const SIMPLE_MIXER_CONTROL = "Master";
 
 class Player {
   constructor() {
-    const initialArgs = ['-idle', '-slave'];
-    this.instance = spawn('mplayer', initialArgs);
+    const initialArgs = ["-idle", "-slave"];
+    this.instance = spawn("mplayer", initialArgs);
     this.setVolume(INITIAL_VOLUME);
     this._setStatus({ isPlaying: false, volume: INITIAL_VOLUME });
+
+    this._stdout = readline.createInterface({ input: this.instance.stdout });
+    this._stdout.on("line", line => this._onOutput(line));
+
+    this._stderr = readline.createInterface({ input: this.instance.stderr });
+    this._stderr.on("line", line => this._onOutput(line));
   }
 
   getStatus() {
@@ -51,7 +58,11 @@ class Player {
   }
 
   _cmd(command) {
-    this.instance.stdin.write(command + '\n');
+    this.instance.stdin.write(command + "\n");
+  }
+
+  _onOutput(line) {
+    console.log(line);
   }
 }
 
