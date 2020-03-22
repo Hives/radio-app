@@ -1,10 +1,10 @@
 const { spawn, exec } = require("child_process");
 const readline = require("readline");
 
-const INITIAL_VOLUME = 50;
+const INITIAL_VOLUME = 20;
 const MIN_VOLUME = 0;
 const MAX_VOLUME = 100;
-const VOLUME_INCREMENT = 2;
+const VOLUME_INCREMENT = 1;
 const SIMPLE_MIXER_CONTROL = "Master";
 
 class Player {
