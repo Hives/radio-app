@@ -1,26 +1,15 @@
-const fs = require("fs");
 const { spawn, exec } = require("child_process");
-const readline = require("readline");
 
 const INITIAL_VOLUME = 50;
-const MIN_VOLUME = 00;
+const MIN_VOLUME = 0;
 const MAX_VOLUME = 100;
 const VOLUME_INCREMENT = 2;
-const FIFO_PATH = "/tmp/radio-fifo-file";
 const SIMPLE_MIXER_CONTROL = "Master";
 
 class Player {
   constructor() {
-    this._volumeIncrement = VOLUME_INCREMENT;
-    this._fifo = FIFO_PATH;
-
-    if (!fs.existsSync(this._fifo)) {
-      this._execWithLogging(`mkfifo ${this._fifo}`);
-    }
-
-    this._execWithLogging(
-      `mplayer -idle -slave -input file=${this._fifo} -volume 100`
-    );
+    const initialArgs = ['-idle', '-slave'];
+    this.instance = spawn('mplayer', initialArgs);
     this.setVolume(INITIAL_VOLUME);
     this._setStatus({ isPlaying: false, volume: INITIAL_VOLUME });
   }
@@ -40,16 +29,16 @@ class Player {
   }
 
   decreaseVolume() {
-    this.setVolume(this._status.volume - this._volumeIncrement);
+    this.setVolume(this._status.volume - VOLUME_INCREMENT);
   }
 
   increaseVolume() {
-    this.setVolume(this._status.volume + this._volumeIncrement);
+    this.setVolume(this._status.volume + VOLUME_INCREMENT);
   }
 
   setVolume(level) {
     const newVolume = this._volumeInRange(level);
-    this._execWithLogging(`amixer set ${SIMPLE_MIXER_CONTROL} ${newVolume}%`);
+    exec(`amixer set ${SIMPLE_MIXER_CONTROL} ${newVolume}%`);
     this._setStatus({ volume: newVolume });
   }
 
@@ -62,24 +51,7 @@ class Player {
   }
 
   _cmd(command) {
-    this._execWithLogging(`echo "${command}" > ${this._fifo}`);
-  }
-
-  _execWithLogging(command) {
-    exec(command, (error, stdout, stderr) => {
-      if (error) {
-        console.log(`command: ${command}`);
-        console.log(`error: ${error.message}`);
-        return;
-      }
-      if (stderr) {
-        console.log(`command: ${command}`);
-        console.log(`stderr: ${stderr}`);
-        return;
-      }
-      // console.log(`stdout: ${stdout}`);
-      // this is always just empty, but might be useful for something one day?
-    });
+    this.instance.stdin.write(command + '\n');
   }
 }
 
