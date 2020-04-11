@@ -1,5 +1,11 @@
 [
   {
+    "name": "MPD on Paul's laptop",
+    "stream": "http://192.168.0.36:7777",
+    "website": "http://wtf",
+    "tags": ["music"]
+  },
+  {
     "name": "Resonance FM",
     "stream": "http://stream.resonance.fm:8000/resonance",
     "website": "https://www.resonancefm.com/",
