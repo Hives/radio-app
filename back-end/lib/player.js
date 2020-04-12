@@ -9,16 +9,17 @@ const SIMPLE_MIXER_CONTROL = "Master";
 
 class Player {
   constructor() {
-    const initialArgs = ["-idle", "-slave"];
+    const initialArgs = ["-idle", "-slave", "-cache", "2048"];
     this.instance = spawn("mplayer", initialArgs);
-    this.setVolume(INITIAL_VOLUME);
-    this._setStatus({ isPlaying: false, volume: INITIAL_VOLUME });
 
     this._stdout = readline.createInterface({ input: this.instance.stdout });
     this._stdout.on("line", line => this._onOutput(line));
 
     this._stderr = readline.createInterface({ input: this.instance.stderr });
     this._stderr.on("line", line => this._onOutput(line));
+
+    this.setVolume(INITIAL_VOLUME);
+    this._setStatus({ isPlaying: false, volume: INITIAL_VOLUME });
   }
 
   getStatus() {
