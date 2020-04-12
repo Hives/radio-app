@@ -9,7 +9,8 @@ const SIMPLE_MIXER_CONTROL = "Master";
 
 class Player {
   constructor() {
-    const initialArgs = ["-idle", "-slave", "-cache", "2048"];
+    // const initialArgs = ["-idle", "-slave", "-cache", "2048"];
+    const initialArgs = ["-idle", "-slave"];
     this.instance = spawn("mplayer", initialArgs);
 
     this._stdout = readline.createInterface({ input: this.instance.stdout });
