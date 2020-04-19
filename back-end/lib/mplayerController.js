@@ -7,7 +7,7 @@ const MAX_VOLUME = 100;
 const VOLUME_INCREMENT = 1;
 const SIMPLE_MIXER_CONTROL = "Master";
 
-class Player {
+class MPlayerController {
   constructor() {
     const initialArgs = ["-idle", "-slave"];
     this.instance = spawn("mplayer", initialArgs);
@@ -67,4 +67,4 @@ class Player {
   }
 }
 
-module.exports = Player;
+module.exports = MPlayerController;

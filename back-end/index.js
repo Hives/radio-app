@@ -1,6 +1,6 @@
 const express = require("express");
 const cors = require("cors");
-const Player = require("./lib/player");
+const Player = require("./lib/mplayerController");
 const { getUniqueTags, getStations, getStation } = require("./lib/data");
 const app = express();
 
