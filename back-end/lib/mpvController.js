@@ -13,6 +13,10 @@ class AudioController {
     this._mpv = new mpvAPI();
     this._mpv.start();
 
+    this._mpv.on("status", status => {
+      console.log(status);
+    });
+
     this.setVolume(INITIAL_VOLUME);
     this._setStatus({ isPlaying: false, volume: INITIAL_VOLUME });
   }
@@ -21,11 +25,11 @@ class AudioController {
     return this._status;
   }
 
-  playStation(station) {
+  async playStation(station) {
     console.log("inside playStation");
     try {
       console.log("inside try");
-      this._mpv.load(station.stream, "replace");
+      await this._mpv.load(station.stream, "replace");
       this._setStatus({ isPlaying: true, source: { station } });
     } catch (error) {
       console.log("inside catch");
