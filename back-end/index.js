@@ -1,6 +1,6 @@
 const express = require("express");
 const cors = require("cors");
-const Player = require("./lib/mplayerController");
+const Player = require("./lib/mpvController");
 const { getUniqueTags, getStations, getStation } = require("./lib/data");
 const app = express();
 
@@ -11,9 +11,9 @@ app.use(express.json());
 
 const player = new Player();
 
-app.get("/", (req, res) => res.send("Hello World!"));
+app.get("/", (_, res) => res.send("Hello World!"));
 
-app.get("/tags", (req, res) => {
+app.get("/tags", (_, res) => {
   res.send(getUniqueTags());
 });
 
@@ -28,7 +28,7 @@ app.put("/player/source", (req, res) => {
   res.send();
 });
 
-app.delete("/player/source", (req, res) => {
+app.delete("/player/source", (_, res) => {
   player.stop();
   res.send();
 });
@@ -49,18 +49,19 @@ app.get("/player/commands", (req, res) => {
       default: {
         if (Number.isInteger(parseInt(volume))) {
           player.setVolume(parseInt(volume));
+        } else {
+          console.error(`could not set volume ${volume}`);
         }
       }
     }
 
     res.send({ volume: player.getStatus().volume });
   } else {
-    console.error(`Command not known: ${req.query.cmd}`);
     res.send();
   }
 });
 
-app.get("/player/status", (req, res) => {
+app.get("/player/status", (_, res) => {
   res.send(player.getStatus());
 });
 

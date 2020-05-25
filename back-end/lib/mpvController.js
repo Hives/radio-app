@@ -1,22 +1,17 @@
 const { spawn, exec } = require("child_process");
 const readline = require("readline");
 
+const mpvAPI = require("../Node-MPV/lib/mpv/mpv");
+
 const INITIAL_VOLUME = 20;
 const MIN_VOLUME = 0;
 const MAX_VOLUME = 100;
 const VOLUME_INCREMENT = 1;
-const SIMPLE_MIXER_CONTROL = "Master";
 
-class MPlayerController {
+class AudioController {
   constructor() {
-    const initialArgs = ["-idle", "-slave"];
-    this.instance = spawn("mplayer", initialArgs);
-
-    this._stdout = readline.createInterface({ input: this.instance.stdout });
-    this._stdout.on("line", line => this._onOutput(line));
-
-    this._stderr = readline.createInterface({ input: this.instance.stderr });
-    this._stderr.on("line", line => this._onOutput(line));
+    this._mpv = new mpvAPI();
+    this._mpv.start();
 
     this.setVolume(INITIAL_VOLUME);
     this._setStatus({ isPlaying: false, volume: INITIAL_VOLUME });
@@ -27,12 +22,12 @@ class MPlayerController {
   }
 
   playStation(station) {
-    this._cmd(`loadfile ${station.stream}`);
+    this._mpv.load(station.stream, "replace");
     this._setStatus({ isPlaying: true, source: { station } });
   }
 
   stop() {
-    this._cmd("stop");
+    this._mpv.stop();
     this._setStatus({ isPlaying: false });
   }
 
@@ -46,7 +41,8 @@ class MPlayerController {
 
   setVolume(level) {
     const newVolume = this._volumeInRange(level);
-    exec(`amixer set ${SIMPLE_MIXER_CONTROL} ${newVolume}%`);
+    console.log(`volume: ${newVolume}`);
+    exec(`pactl set-sink-volume @DEFAULT_SINK@ ${newVolume}%`);
     this._setStatus({ volume: newVolume });
   }
 
@@ -57,14 +53,6 @@ class MPlayerController {
   _setStatus(update) {
     this._status = { ...this._status, ...update };
   }
-
-  _cmd(command) {
-    this.instance.stdin.write(command + "\n");
-  }
-
-  _onOutput(line) {
-    console.log(line);
-  }
 }
 
-module.exports = MPlayerController;
+module.exports = AudioController;
