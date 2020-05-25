@@ -12,7 +12,6 @@ const SOCKET_ADDRESS = "/tmp/paulys-radio-mpv.sock";
 class AudioController {
   constructor() {
     this._mpv = new mpvAPI({
-      verbose: true,
       audio_only: true,
       socket: SOCKET_ADDRESS
     });

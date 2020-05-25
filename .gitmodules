@@ -1,3 +1,0 @@
-[submodule "back-end/Node-MPV"]
-	path = back-end/Node-MPV
-	url = git@github.com:j-holub/Node-MPV.git
