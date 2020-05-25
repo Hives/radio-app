@@ -11,11 +11,12 @@ const VOLUME_INCREMENT = 1;
 class AudioController {
   constructor() {
     this._mpv = new mpvAPI();
-    this._mpv.start();
 
     this._mpv.on("status", status => {
       console.log(status);
     });
+
+    this._mpv.start();
 
     this.setVolume(INITIAL_VOLUME);
     this._setStatus({ isPlaying: false, volume: INITIAL_VOLUME });
