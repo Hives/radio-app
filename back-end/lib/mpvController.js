@@ -22,11 +22,14 @@ class AudioController {
   }
 
   playStation(station) {
+    console.log("inside playStation");
     try {
+      console.log("inside try");
       this._mpv.load(station.stream, "replace");
       this._setStatus({ isPlaying: true, source: { station } });
     } catch (error) {
-      console.log(error);
+      console.log("inside catch");
+      console.error(error);
     }
   }
 
