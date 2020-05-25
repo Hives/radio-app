@@ -9,7 +9,7 @@ const MAX_VOLUME = 100;
 const VOLUME_INCREMENT = 1;
 
 class AudioController {
-  async constructor() {
+  constructor() {
     this._mpv = new mpvAPI({
       verbose: true,
       audio_only: true
@@ -19,7 +19,7 @@ class AudioController {
       console.log(status);
     });
 
-    await this._mpv.start();
+    this._mpv.start();
 
     this.setVolume(INITIAL_VOLUME);
     this._setStatus({ isPlaying: false, volume: INITIAL_VOLUME });
