@@ -32,6 +32,7 @@ class AudioController {
     console.log("inside playStation");
     try {
       console.log("inside try");
+      console.log(this._mpv);
       await this._mpv.start();
       console.log("after start");
       await this._mpv.load(station.stream, "replace");
