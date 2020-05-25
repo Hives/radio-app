@@ -1,19 +1,20 @@
 const { spawn, exec } = require("child_process");
 const readline = require("readline");
 
-const mpvAPI = require("../Node-MPV/lib/mpv/mpv");
+const mpvAPI = require("node-mpv");
 
 const INITIAL_VOLUME = 20;
 const MIN_VOLUME = 0;
 const MAX_VOLUME = 100;
 const VOLUME_INCREMENT = 1;
+const SOCKET_ADDRESS = "/tmp/paulys-radio-mpv.sock";
 
 class AudioController {
   constructor() {
     this._mpv = new mpvAPI({
       verbose: true,
       audio_only: true,
-      socket: "paulys-radio-mpv.sock"
+      socket: SOCKET_ADDRESS
     });
 
     this._mpv.on("status", status => {
@@ -27,7 +28,8 @@ class AudioController {
   async start() {
     try {
       console.log("before start");
-      await this._mpv.start();
+      const r = await this._mpv.start();
+      console.log(r);
       console.log("after start");
     } catch (error) {
       console.error(error);
