@@ -24,6 +24,18 @@ class AudioController {
     this._setStatus({ isPlaying: false, volume: INITIAL_VOLUME });
   }
 
+  async start() {
+    try {
+      console.log("before start");
+      await this._mpv.start().then(() => {
+        console.log("is running: " + this._mpv.isRunning());
+      });
+      console.log("after start");
+    } catch (error) {
+      console.error(error);
+    }
+  }
+
   getStatus() {
     return this._status;
   }
@@ -32,11 +44,6 @@ class AudioController {
     console.log("inside playStation");
     try {
       console.log("inside try");
-      console.log(this._mpv);
-      await this._mpv.start().then(() => {
-        console.log("is running: " + this._mpv.isRunning());
-      });
-      console.log("after start");
       await this._mpv.load(station.stream, "replace");
       console.log("after load");
       this._setStatus({ isPlaying: true, source: { station } });

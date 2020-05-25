@@ -10,6 +10,7 @@ app.use(cors());
 app.use(express.json());
 
 const player = new Player();
+player.start();
 
 app.get("/", (_, res) => res.send("Hello World!"));
 
