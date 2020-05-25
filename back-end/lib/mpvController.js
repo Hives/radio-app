@@ -22,8 +22,12 @@ class AudioController {
   }
 
   playStation(station) {
-    this._mpv.load(station.stream, "replace");
-    this._setStatus({ isPlaying: true, source: { station } });
+    try {
+      this._mpv.load(station.stream, "replace");
+      this._setStatus({ isPlaying: true, source: { station } });
+    } catch (error) {
+      console.log(error);
+    }
   }
 
   stop() {
