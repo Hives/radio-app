@@ -33,7 +33,7 @@ class AudioController {
     try {
       console.log("inside try");
       console.log(this._mpv);
-      this._mpv.start().then(() => {
+      await this._mpv.start().then(() => {
         console.log("is running: " + this._mpv.isRunning());
       });
       console.log("after start");
