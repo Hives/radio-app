@@ -20,17 +20,15 @@ class AudioController {
     this._mpv.on("status", status => {
       console.log(status);
     });
-
-    this.setVolume(INITIAL_VOLUME);
-    this._setStatus({ isPlaying: false, volume: INITIAL_VOLUME });
   }
 
-  async start() {
+  async init() {
     try {
       console.log("before start");
-      const r = await this._mpv.start();
-      console.log(r);
+      await this._mpv.start();
       console.log("after start");
+      await this.setVolume(INITIAL_VOLUME);
+      this._setStatus({ isPlaying: false, volume: INITIAL_VOLUME });
     } catch (error) {
       console.error(error);
     }
@@ -67,10 +65,14 @@ class AudioController {
   }
 
   setVolume(level) {
-    const newVolume = this._volumeInRange(level);
-    console.log(`volume: ${newVolume}`);
-    exec(`pactl set-sink-volume @DEFAULT_SINK@ ${newVolume}%`);
-    this._setStatus({ volume: newVolume });
+    try {
+      const newVolume = this._volumeInRange(level);
+      console.log(`volume: ${newVolume}`);
+      this._mpv.volume(newVolume);
+      this._setStatus({ volume: newVolume });
+    } catch (error) {
+      console.error(error);
+    }
   }
 
   _volumeInRange(level) {
