@@ -27,9 +27,7 @@ class AudioController {
   async start() {
     try {
       console.log("before start");
-      await this._mpv.start().then(() => {
-        console.log("is running: " + this._mpv.isRunning());
-      });
+      await this._mpv.start();
       console.log("after start");
     } catch (error) {
       console.error(error);
