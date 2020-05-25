@@ -13,7 +13,7 @@ class AudioController {
     this._mpv = new mpvAPI({
       verbose: true,
       audio_only: true,
-      socket: "/tmp/paulys-radio-mpv.sock"
+      socket: "paulys-radio-mpv.sock"
     });
 
     this._mpv.on("status", status => {
