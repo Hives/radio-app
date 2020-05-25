@@ -33,7 +33,9 @@ class AudioController {
     try {
       console.log("inside try");
       console.log(this._mpv);
-      await this._mpv.start();
+      this._mpv.start().then(() => {
+        console.log("is running: " + this._mpv.isRunning());
+      });
       console.log("after start");
       await this._mpv.load(station.stream, "replace");
       console.log("after load");
