@@ -130,9 +130,37 @@
   },
   {
     "name": "WFMU",
-    "stream": "http://stream0.wfmu.org/freeform-128k.mp3",
+    "stream": "http://stream0.wfmu.org/freeform-high.mp3",
     "website": "https://wfmu.org/",
     "tags": [
+      "wfmu",
+      "music"
+    ]
+  },
+  {
+    "name": "WFMU's Give The Drummer Radio",
+    "stream": "http://stream0.wfmu.org/drummer",
+    "website": "https://wfmu.org/drummer",
+    "tags": [
+      "wfmu",
+      "music"
+    ]
+  },
+  {
+    "name": "WFMU's Rock'n'Soul Radio",
+    "stream": "http://stream0.wfmu.org/rocknsoul",
+    "website": "https://wfmu.org/rocknsoulradio",
+    "tags": [
+      "wfmu",
+      "music"
+    ]
+  },
+  {
+    "name": "Sheena's Jungle Room on WFMU",
+    "stream": "http://stream0.wfmu.org/sheena",
+    "website": "https://wfmu.org/sheena",
+    "tags": [
+      "wfmu",
       "music"
     ]
   },
