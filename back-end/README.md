@@ -2,18 +2,14 @@
 
 ## Installation
 
-Execute `yarn` in this folder to install application.
+Execute `yarn` in this folder to install.
 
-Uses `node-mpv` to control `mpv` to play audio. Requires `mpv` to be installed.
+Uses `node-mpv` to control `mpv` to play audio. Requires `mpv` to be installed -
+use your system package manager.
 
 ## Execution
 
-Update the value of `SIMPLE_MIXER_CONTROL` in `player.js` so it's the name of
-the simple mixer control that `amixer` is going to control. On my laptop it's
-`Mixer`, but on my Raspberry Pi it's `Speaker`. (It would be better if this was
-in a config file that's not part of the code.)
-
-Then execute `yarn start` in this folder.
+Run `yarn start` in this folder.
 
 You can also do `yarn start:dev`.
 
