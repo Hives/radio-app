@@ -2,7 +2,9 @@
 
 ## Installation
 
-Execute `yarn` in this folder
+Execute `yarn` in this folder to install application.
+
+Uses `node-mpv` to control `mpv` to play audio. Requires `mpv` to be installed.
 
 ## Execution
 
