@@ -4,6 +4,25 @@
 
 [Back end](back-end) in Node/Express
 
+## Automatic startup
+
+This is a somewhat idiosyncratic way to do this, but there's a script which
+creates a [tmux](https://github.com/tmux/tmux/wiki) session and starts up the
+front and back ends in separate windows. Run it like this:
+
+```
+$ /path/to/radio-app/startup-radio-tmux.sh
+```
+
+(You'll need to have installed both and built the front end first, obvs.)
+
+You can run the script on startup by editing your crontab with `crontab -e`
+(root privileges not required), and adding this line:
+
+```
+@reboot /path/to/radio-app/startup-radio-tmux.sh
+```
+
 ## Raspberry Pi firewall setup
 
 Need to set up and configure a firewall on the RPi to allow the two apps to be
