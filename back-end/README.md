@@ -9,9 +9,9 @@ use your system package manager.
 
 ## Execution
 
-Run `yarn start` in this folder.
+Run `npm start` in this folder.
 
-You can also do `yarn start:dev`.
+You can also do `npm start:dev` to start a server with hot reloading.
 
 ## Resources
 
