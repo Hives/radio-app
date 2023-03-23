@@ -1,6 +1,3 @@
-const { spawn, exec } = require("child_process");
-const readline = require("readline");
-
 const mpvAPI = require("node-mpv");
 
 const INITIAL_VOLUME = 20;
@@ -50,9 +47,9 @@ class AudioController {
     }
   }
 
-  stop() {
-    this._mpv.stop();
-    this._setStatus({ isPlaying: false });
+  async stop() {
+    await this._mpv.stop();
+    this._setStatus({isPlaying: false});
   }
 
   decreaseVolume() {

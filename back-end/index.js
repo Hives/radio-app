@@ -4,7 +4,7 @@ const Player = require("./lib/mpvController");
 const { getUniqueTags, getStations, getStation } = require("./lib/data");
 const app = express();
 
-const port = 1234;
+const port = 3001;
 
 app.use(cors());
 app.use(express.json());
@@ -22,15 +22,15 @@ app.get("/stations", (req, res) => {
   res.send(getStations(req.query));
 });
 
-app.put("/player/source", (req, res) => {
-  const { stationId } = req.body;
+app.put("/player/source", async (req, res) => {
+  const {stationId} = req.body;
   const station = getStation(stationId);
-  player.playStation(station);
+  await player.playStation(station);
   res.send();
 });
 
-app.delete("/player/source", (_, res) => {
-  player.stop();
+app.delete("/player/source", async (_, res) => {
+  await player.stop();
   res.send();
 });
 
