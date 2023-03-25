@@ -9,14 +9,20 @@ export const Station = z.object({
 
 export const Stations = z.array(Station);
 
-export const Status = z.object({
-  isPlaying: z.boolean(),
-  volume: z.number(),
-  source: z.object({
-    station: z.object({
-      name: z.string(),
-      tags: z.array(z.string()),
-      website: z.string(),
+export const Status = z.discriminatedUnion("isPlaying", [
+  z.object({
+    isPlaying: z.literal(true),
+    volume: z.number(),
+    source: z.object({
+      station: z.object({
+        name: z.string(),
+        tags: z.array(z.string()),
+        website: z.string(),
+      }),
     }),
   }),
-});
+  z.object({
+    isPlaying: z.literal(false),
+    volume: z.number(),
+  }),
+]);
