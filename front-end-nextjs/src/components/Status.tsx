@@ -11,7 +11,7 @@ type Props = {
 
 export function Status({ initialStatus }: Props) {
   const { isLoading, data: status } = useStatusQuery(initialStatus);
-  const { invalidateStatus } = useInvalidateStatus();
+  const invalidateStatus = useInvalidateStatus();
   const stopAndInvalidate = () => stop().then(invalidateStatus);
 
   if (isLoading) return null;

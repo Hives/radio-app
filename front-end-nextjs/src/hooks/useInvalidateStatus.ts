@@ -4,5 +4,5 @@ export const useInvalidateStatus = () => {
   const queryClient = useQueryClient();
   const invalidateStatus = () => queryClient.invalidateQueries(["status"]);
 
-  return { invalidateStatus };
+  return invalidateStatus;
 };

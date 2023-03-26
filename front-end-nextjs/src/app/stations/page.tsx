@@ -1,4 +1,4 @@
-import { PlayStationButton } from "@/components/PlayStationButton";
+import { PlayStation } from "@/components/PlayStation";
 import { getStations } from "@/radio/radio";
 
 export default async function Home() {
@@ -7,7 +7,7 @@ export default async function Home() {
     <ul>
       {stations.map((station) => (
         <li key={station.id}>
-          <PlayStationButton station={station} />
+          <PlayStation station={station} />
         </li>
       ))}
     </ul>

@@ -1,5 +1,5 @@
 import { getStationsByTag } from "@/radio/radio";
-import { PlayStationButton } from "@/components/PlayStationButton";
+import { PlayStation } from "@/components/PlayStation";
 
 export default async function ({ params }) {
   const { tag } = params;
@@ -10,7 +10,7 @@ export default async function ({ params }) {
       <ul>
         {stations.map((station) => (
           <li key={station.id}>
-            <PlayStationButton station={station} />
+            <PlayStation station={station} />
           </li>
         ))}
       </ul>
