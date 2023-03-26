@@ -1,20 +1,24 @@
 "use client";
 
-import { stop, Status } from "@/radio/radio";
-import { useInvalidateStatus } from "@/hooks/useInvalidateStatus";
-import { useStatusQuery } from "@/hooks/useStatusQuery";
+import { stop, Status, getStatus } from "@/radio/radio";
 import { Volume } from "@/components/Volume";
+import { useState } from "react";
+import { useInterval } from "@/utils/useInterval";
 
 type Props = {
   initialStatus: Status;
 };
 
 export function Status({ initialStatus }: Props) {
-  const { isLoading, data: status } = useStatusQuery(initialStatus);
-  const invalidateStatus = useInvalidateStatus();
-  const stopAndInvalidate = () => stop().then(invalidateStatus);
+  const [status, setStatus] = useState<Status>(initialStatus);
 
-  if (isLoading) return null;
+  const updateStatus = () => getStatus().then((status) => setStatus(status));
+
+  useInterval(updateStatus, 2_000);
+
+  const stopAndUpdate = () => {
+    stop().then(updateStatus)
+  };
 
   return status.isPlaying ? (
     <div>
@@ -27,7 +31,7 @@ export function Status({ initialStatus }: Props) {
       <div>
         <Volume level={status.volume} />
       </div>
-      <button onClick={stopAndInvalidate} disabled={!status.isPlaying}>
+      <button onClick={stopAndUpdate} disabled={!status.isPlaying}>
         Stop
       </button>
     </div>

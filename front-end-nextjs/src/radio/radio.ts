@@ -6,7 +6,7 @@ export type Station = z.infer<typeof Station>;
 export type Status = z.infer<typeof Status>;
 
 export async function playStation(stationId: number) {
-  return await fetchRadio("/player/source", {
+  await fetchRadio("/player/source", {
     method: "PUT",
     headers: {
       "Content-Type": "application/json",
