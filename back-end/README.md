@@ -2,7 +2,7 @@
 
 ## Installation
 
-Execute `yarn` in this folder to install.
+Execute `npm install` in this folder to install.
 
 Uses `node-mpv` to control `mpv` to play audio. Requires `mpv` to be installed -
 use your system package manager.
@@ -11,7 +11,7 @@ use your system package manager.
 
 Run `npm start` in this folder.
 
-You can also do `npm start:dev` to start a server with hot reloading.
+You can also do `npm run dev` to start a server with hot reloading.
 
 ## Resources
 
