@@ -83,7 +83,7 @@
     "website": "https://www.bbc.co.uk/5live",
     "tags": [
       "bbc",
-      "sport"
+      "sports"
     ]
   },
   {
@@ -92,7 +92,7 @@
     "website": "https://www.bbc.co.uk/5sportsextra",
     "tags": [
       "bbc",
-      "sport"
+      "sports"
     ]
   },
   {
@@ -109,7 +109,8 @@
     "stream": "http://radio.intergalactic.fm/1",
     "website": "https://www.intergalactic.fm/",
     "tags": [
-      "music"
+      "music",
+      "cbs"
     ]
   },
   {
@@ -117,7 +118,8 @@
     "stream": "http://radio.intergalactic.fm/2",
     "website": "https://www.intergalactic.fm/",
     "tags": [
-      "music"
+      "music",
+      "cbs"
     ]
   },
   {
@@ -125,7 +127,8 @@
     "stream": "http://radio.intergalactic.fm/3",
     "website": "https://www.intergalactic.fm/",
     "tags": [
-      "music"
+      "music",
+      "cbs"
     ]
   },
   {
@@ -169,7 +172,8 @@
     "stream": "http://stream-relay-geo.ntslive.net/stream",
     "website": "https://www.nts.live/",
     "tags": [
-      "music"
+      "music",
+      "nts"
     ]
   },
   {
@@ -177,7 +181,8 @@
     "stream": "http://stream-relay-geo.ntslive.net/stream2",
     "website": "https://www.nts.live/",
     "tags": [
-      "music"
+      "music",
+      "nts"
     ]
   },
   {
