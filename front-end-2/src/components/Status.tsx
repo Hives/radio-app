@@ -1,39 +1,60 @@
-import { stop, Status, getStatus } from "@/radio/radio";
+import { stop, Status, getStatus, Station } from "@/radio/radio";
 import { Volume } from "@/components/Volume";
 import { useState } from "react";
 import { useInterval } from "@/utils/useInterval";
+import { useStatusQuery } from "@/hooks/useStatusQuery";
+import { useQueryClient } from "@tanstack/react-query";
+import { useInvalidateStatus } from "@/hooks/useInvalidateStatus";
 
 type Props = {
   initialStatus: Status;
 };
 
 export function Status({ initialStatus }: Props) {
-  const [status, setStatus] = useState<Status>(initialStatus);
+  const statusQuery = useStatusQuery(initialStatus);
+  const invalidateStatus = useInvalidateStatus();
 
-  console.log(status);
+  if (statusQuery.isError) return <h1>Oh no</h1>;
 
-  const updateStatus = () => getStatus().then((status) => setStatus(status));
+  const { data: status } = statusQuery;
 
-  useInterval(updateStatus, 2_000);
+  const stopAndRefresh = () => stop().then(invalidateStatus);
 
-  const stopAndUpdate = () => {
-    stop().then(updateStatus)
-  };
-
-  return status.isPlaying ? (
+  return (
     <div>
-      <h2>{status.source.station.name}</h2>
+      {status.isPlaying && (
+        <StatusInner
+          stationName={status.source.station.name}
+          stationWebsite={status.source.station.website}
+          volume={status.volume}
+          stop={stopAndRefresh}
+        />
+      )}
+    </div>
+  );
+}
+
+function StatusInner({
+  stationName,
+  stationWebsite,
+  volume,
+  stop,
+}: {
+  stationName: string;
+  stationWebsite: string;
+  volume: number;
+  stop: () => void;
+}) {
+  return (
+    <div>
+      <h2>{stationName}</h2>
       <p>
-        <a href={status.source.station.website}>
-          {status.source.station.website}
-        </a>
+        <a href={stationWebsite}>{stationWebsite}</a>
       </p>
       <div>
-        <Volume level={status.volume} />
+        <Volume level={volume} />
       </div>
-      <button onClick={stopAndUpdate} disabled={!status.isPlaying}>
-        Stop
-      </button>
+      <button onClick={stop}>Stop</button>
     </div>
-  ) : null;
+  );
 }

@@ -8,7 +8,7 @@ type Props = {
 export const Volume = ({ level }: Props) => (
   <>
     <div>
-      <label htmlFor="points">Volume: {level}</label>
+      <label htmlFor="volume">Volume: {level}</label>
     </div>
     <div>
       <button disabled={level <= 0} onClick={() => setVolume(level - 1)}>

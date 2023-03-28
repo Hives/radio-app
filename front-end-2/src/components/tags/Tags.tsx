@@ -1,26 +1,32 @@
-import { Station } from "@/radio/radio";
-import { useState } from "react";
-import { AllTags } from "@/components/tags/AllTags";
-import { StationsByTag } from "@/components/tags/StationsByTag";
+import { TagButton } from "@/components/tags/TagButton";
 
 type Props = {
   tags: string[];
-  stations: Station[];
+  setSelectedTag: (tag: string | undefined) => void;
 };
 
-export function Tags({ tags, stations }: Props) {
-  const [selectedTag, setSelectedTag] = useState<string>();
-
-  if (!selectedTag) {
-    return <AllTags tags={tags} setSelectedTag={setSelectedTag} />;
-  }
-
+export function Tags({ tags, setSelectedTag }: Props) {
   return (
-    <StationsByTag
-      stations={stations.filter((station) =>
-        station.tags.includes(selectedTag)
-      )}
-      tag={selectedTag}
-    />
+    <>
+      <span className="mr-1">Tags:</span>
+      <ul className="inline">
+        {tags.map((tag) => (
+          <li key={tag} className="inline">
+            <TagButton
+              className="bg-indigo-200"
+              onClick={() => setSelectedTag(tag)}
+            >
+              {tag}
+            </TagButton>
+          </li>
+        ))}
+      </ul>
+      <TagButton
+        className="bg-pink-200"
+        onClick={() => setSelectedTag(undefined)}
+      >
+        Show all stations
+      </TagButton>
+    </>
   );
 }

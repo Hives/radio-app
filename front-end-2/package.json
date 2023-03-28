@@ -9,6 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@tanstack/react-query": "^4.28.0",
     "@types/node": "18.15.10",
     "@types/react": "18.0.29",
     "@types/react-dom": "18.0.11",
@@ -21,6 +22,11 @@
     "zod": "^3.21.4"
   },
   "devDependencies": {
-    "prettier": "^2.8.7"
+    "autoprefixer": "^10.4.14",
+    "classnames": "^2.3.2",
+    "postcss": "^8.4.21",
+    "prettier": "^2.8.7",
+    "prettier-plugin-tailwindcss": "^0.2.5",
+    "tailwindcss": "^3.2.7"
   }
 }
