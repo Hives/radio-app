@@ -45,20 +45,13 @@ export async function getStations(): Promise<Station[]> {
 }
 
 export async function getStatus(): Promise<Status> {
-  console.log("---getStatus--- WAS CALLED!!");
   const data = await fetchRadio("/player/status");
   const json = await data.json();
   const status = Status.parse(json);
-  console.log(`---getStatus--- status: ${JSON.stringify(status, null, 2)}`);
   return status;
 }
 
 async function fetchRadio(path: string, init?: RequestInit): Promise<Response> {
-  console.log(
-    `---fetchRadio--- path: ${path}${
-      init ? `, init: ${JSON.stringify(init, null, 2)}` : ""
-    }`
-  );
   return await fetch(new URL(path, "http://localhost:3001"), {
     cache: "no-cache",
     ...init,
