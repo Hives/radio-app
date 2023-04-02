@@ -1,6 +1,12 @@
 import { Station, Stations, Status } from "./schemas";
 
 import { z } from "zod";
+import getConfig from "next/config";
+
+const { publicRuntimeConfig } = getConfig();
+const { serverPort, serverIp } = publicRuntimeConfig;
+
+const radioUrl = `http://${serverIp}:${serverPort}`;
 
 export type Station = z.infer<typeof Station>;
 export type Status = z.infer<typeof Status>;
@@ -52,7 +58,7 @@ export async function getStatus(): Promise<Status> {
 }
 
 async function fetchRadio(path: string, init?: RequestInit): Promise<Response> {
-  return await fetch(new URL(path, "http://localhost:3001"), {
+  return await fetch(new URL(path, radioUrl), {
     cache: "no-cache",
     ...init,
   });
