@@ -9,7 +9,7 @@ type Props = {
 
 export function VolumeButton({ disabled, onClick, children }: Props) {
   return (
-    <Button className="w-6" disabled={disabled} onClick={onClick}>
+    <Button className="w-10" disabled={disabled} onClick={onClick}>
       {children}
     </Button>
   );

@@ -11,7 +11,7 @@ type Props = {
 export function TagButton({ onClick, children, className }: Props) {
   return (
     <button
-      className={classNames("my-1 mr-1 px-2 font-bold rounded-md shadow-md", className)}
+      className={classNames("my-1 mr-2 py-2 px-4 font-bold rounded-md shadow-md", className)}
       onClick={onClick}
     >
       {children}

@@ -11,7 +11,7 @@ type Props = {
 export function Button({ disabled, onClick, className, children }: Props) {
   return (
     <button
-      className={classNames("rounded bg-green-600 text-white font-bold shadow-md px-2", className)}
+      className={classNames("rounded bg-green-600 text-white font-bold shadow-md p-2", className)}
       disabled={!!disabled}
       onClick={onClick}
     >

@@ -15,7 +15,7 @@ export const Volume = ({ level }: Props) => {
 
   return (
     <div className="w-full">
-      <div className="flex w-full gap-2">
+      <div className="flex w-full gap-2 items-center">
         <VolumeButton
           disabled={localLevel <= 0}
           onClick={() => setLocalLevel(localLevel - 1)}

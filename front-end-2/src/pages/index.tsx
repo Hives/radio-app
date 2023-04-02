@@ -41,7 +41,7 @@ export default function Stations({
           </h1>
         </header>
         <div className="flex flex-col shrink overflow-hidden">
-          <div className="min-h-[12rem] shrink-0 m-2">
+          <div className="shrink-0 m-2">
             <Status initialStatus={initialStatus} />
           </div>
           <div className="mx-2">

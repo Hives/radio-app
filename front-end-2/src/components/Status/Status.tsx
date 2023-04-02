@@ -19,7 +19,7 @@ export function Status({ initialStatus }: Props) {
   const stopAndRefresh = () => stop().then(invalidateStatus);
 
   return (
-    <div className="h-full rounded-2xl bg-white p-4 shadow-md">
+    <div className="min-h-[14rem] h-full rounded-2xl bg-white p-4 shadow-md">
       {status.isPlaying ? (
         <Playing
           stationName={status.source.station.name}

@@ -8,7 +8,7 @@ type Props = {
 export function Tags({ tags, setSelectedTag }: Props) {
   return (
     <>
-      <span className="mr-1 text-white font-bold text-shadow">Tags:</span>
+      <span className="mr-2 text-white font-bold text-shadow">Tags:</span>
       <ul className="inline">
         {tags.map((tag) => (
           <li key={tag} className="inline">
