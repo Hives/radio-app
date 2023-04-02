@@ -1,0 +1,13 @@
+.volume {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  margin-bottom: 10px;
+}
+.volumeLevel {
+  width: 3em;
+}
+.volumeSlider {
+  width: 100%;
+  margin: 0 10px;
+}
