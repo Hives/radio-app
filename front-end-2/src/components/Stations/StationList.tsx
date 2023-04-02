@@ -1,5 +1,5 @@
 import { Station } from "@/radio/radio";
-import { PlayStation } from "@/components/PlayStation";
+import { PlayStation } from "@/components/Stations/PlayStation";
 
 type Props = {
   stations: Station[];
@@ -7,11 +7,10 @@ type Props = {
 
 export function StationList({ stations }: Props) {
   return (
-    <ul className="grid grid-cols-2 gap-2">
+    <ul className="h-full bg-white grid grid-cols-2 gap-2 rounded-xl p-3 overflow-auto shadow-md">
       {stations.map((station) => (
         <li
           key={station.id}
-          className="flex h-16 items-center justify-center rounded border-2 border-indigo-200 bg-indigo-100 p-2"
         >
           <PlayStation station={station} />
         </li>

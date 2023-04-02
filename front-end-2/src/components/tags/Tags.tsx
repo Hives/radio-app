@@ -8,12 +8,12 @@ type Props = {
 export function Tags({ tags, setSelectedTag }: Props) {
   return (
     <>
-      <span className="mr-1">Tags:</span>
+      <span className="mr-1 text-white font-bold text-shadow">Tags:</span>
       <ul className="inline">
         {tags.map((tag) => (
           <li key={tag} className="inline">
             <TagButton
-              className="bg-indigo-200"
+              className="bg-green-200 text-green-700"
               onClick={() => setSelectedTag(tag)}
             >
               {tag}
@@ -22,7 +22,7 @@ export function Tags({ tags, setSelectedTag }: Props) {
         ))}
       </ul>
       <TagButton
-        className="bg-pink-200"
+        className="bg-pink-200 text-pink-700"
         onClick={() => setSelectedTag(undefined)}
       >
         Show all stations

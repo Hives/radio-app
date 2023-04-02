@@ -1,3 +1,26 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.stripy-background {
+  --stripe-size: 10px;
+  background-image: repeating-linear-gradient(
+    -45deg,
+    theme("colors.green.300"),
+    theme("colors.green.300") var(--stripe-size),
+    theme("colors.pink.300") var(--stripe-size),
+    theme("colors.pink.300") calc(3 * var(--stripe-size))
+  );
+  background-size: 200% 200%;
+  animation: barberpole 50s linear infinite;
+}
+
+@keyframes barberpole {
+  100% {
+    background-position: 100% 100%;
+  }
+}
+
+.text-shadow {
+  text-shadow: rgba(0, 0, 0, 0.7) 2px 2px 4px;
+}

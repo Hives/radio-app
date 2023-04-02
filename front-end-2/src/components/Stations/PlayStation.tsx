@@ -1,5 +1,6 @@
 import { Station } from "@/radio/radio";
 import { useMutateStation } from "@/hooks/useMutateStation";
+import {Button} from "@/components/Button";
 
 type Props = {
   station: Station;
@@ -9,8 +10,10 @@ export function PlayStation({ station }: Props) {
   const mutateStation = useMutateStation();
 
   return (
-    <button onClick={() => mutateStation.mutate(station.id)}>
+    <Button
+      className="flex w-full h-16 items-center justify-center rounded-xl"
+      onClick={() => mutateStation.mutate(station.id)}>
       {station.name}
-    </button>
+    </Button>
   );
 }
