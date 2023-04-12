@@ -3,16 +3,32 @@
 @tailwind utilities;
 
 .stripy-background {
-  --stripe-size: 10px;
-  background-image: repeating-linear-gradient(
-    -45deg,
-    theme("colors.green.300"),
-    theme("colors.green.300") var(--stripe-size),
-    theme("colors.pink.300") var(--stripe-size),
-    theme("colors.pink.300") calc(3 * var(--stripe-size))
-  );
-  background-size: 200% 200%;
-  animation: barberpole 50s linear infinite;
+  --scale: 3rem;
+  --green: theme("colors.green.300");
+  --pink: theme("colors.pink.300");
+
+  background-color: var(--pink);
+  background-image: linear-gradient(-45deg, transparent 75%, var(--green) 75%),
+    linear-gradient(-135deg, transparent 75%, var(--green) 75%),
+    linear-gradient(45deg, transparent 75%, var(--green) 75%),
+    linear-gradient(135deg, transparent 75%, var(--green) 75%);
+  background-size: var(--scale) var(--scale);
+  /*background-position: 2rem 0, 4rem 0, 0 0, 0 0;*/
+
+  animation: slidey 15s linear infinite;
+}
+
+@keyframes slidey {
+  from {
+    background-position: 0 0, 0 0, 0 0, 0 0;
+    /*background-position: 2rem 0, 4rem 0, 0 0, 0 0;*/
+  }
+  to {
+    background-position: 0 var(--scale), 0 var(--scale),
+      0 calc(-1 * var(--scale)), 0 calc(-1 * var(--scale));
+    /*background-position: 4rem 0, -4rem 4rem, -4rem 0, 2rem 0;*/
+    /*background-position: 6rem 0, 4rem 0, 0 0, 0 0;*/
+  }
 }
 
 @keyframes barberpole {
