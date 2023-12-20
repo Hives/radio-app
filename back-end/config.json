@@ -192,5 +192,41 @@
     "tags": [
       "music"
     ]
+  },
+  {
+    "name": "Rinse UK",
+    "stream": "https://streamer-uk.rinse.fm:8443/stream",
+    "website": "https://rinse.fm/channels/uk/",
+    "tags": [
+      "music",
+      "rinse fm"
+    ]
+  },
+  {
+    "name": "Rinse France",
+    "stream": "https://radio10.pro-fhi.net/flux-trmqtiat/stream",
+    "website": "https://rinse.fm/channels/france/",
+    "tags": [
+      "music",
+      "rinse fm"
+    ]
+  },
+  {
+    "name": "Kool FM",
+    "stream": "https://admin.stream.rinse.fm/proxy/kool/stream",
+    "website": "https://rinse.fm/channels/kool/",
+    "tags": [
+      "music",
+      "rinse fm"
+    ]
+  },
+  {
+    "name": "SWU FM",
+    "stream": "https://admin.stream.rinse.fm/proxy/swu/stream",
+    "website": "https://rinse.fm/channels/swu/",
+    "tags": [
+      "music",
+      "rinse fm"
+    ]
   }
 ]
