@@ -18,8 +18,8 @@
   },
   {
     "name": "BBC Radio 1",
-    "stream": "http://a.files.bbci.co.uk/media/live/manifesto/audio/simulcast/hls/uk/sbr_high/ak/bbc_radio_one.m3u8",
-    "website": "https://www.bbc.co.uk/radio1",
+    "stream": "http://as-hls-ww-live.akamaized.net/pool_904/live/ww/bbc_radio_one/bbc_radio_one.isml/bbc_radio_one-audio%3d96000.norewind.m3u8",
+    "website": "https://www.bbc.co.uk/sounds/play/live:bbc_radio_one",
     "tags": [
       "bbc",
       "music"
@@ -27,8 +27,8 @@
   },
   {
     "name": "BBC Radio 1Xtra",
-    "stream": "http://a.files.bbci.co.uk/media/live/manifesto/audio/simulcast/hls/uk/sbr_high/ak/bbc_1xtra.m3u8",
-    "website": "https://www.bbc.co.uk/1xtra",
+    "stream": "http://as-hls-ww-live.akamaized.net/pool_904/live/ww/bbc_1xtra/bbc_1xtra.isml/bbc_1xtra-audio%3d96000.norewind.m3u8",
+    "website": "https://www.bbc.co.uk/sounds/play/live:bbc_1xtra",
     "tags": [
       "bbc",
       "music"
@@ -36,8 +36,8 @@
   },
   {
     "name": "BBC Radio 2",
-    "stream": "http://a.files.bbci.co.uk/media/live/manifesto/audio/simulcast/hls/uk/sbr_high/ak/bbc_radio_two.m3u8",
-    "website": "https://www.bbc.co.uk/radio2",
+    "stream": "http://as-hls-ww-live.akamaized.net/pool_904/live/ww/bbc_radio_two/bbc_radio_two.isml/bbc_radio_two-audio%3d96000.norewind.m3u8",
+    "website": "https://www.bbc.co.uk/sounds/play/live:bbc_radio_two",
     "tags": [
       "bbc",
       "music"
@@ -45,8 +45,8 @@
   },
   {
     "name": "BBC Radio 3",
-    "stream": "http://a.files.bbci.co.uk/media/live/manifesto/audio/simulcast/hls/uk/sbr_high/ak/bbc_radio_three.m3u8",
-    "website": "https://www.bbc.co.uk/radio3",
+    "stream": "http://as-hls-ww-live.akamaized.net/pool_904/live/ww/bbc_radio_three/bbc_radio_three.isml/bbc_radio_three-audio%3d96000.norewind.m3u8",
+    "website": "https://www.bbc.co.uk/sounds/play/live:bbc_radio_three",
     "tags": [
       "bbc",
       "music"
@@ -54,8 +54,8 @@
   },
   {
     "name": "BBC Radio 4",
-    "stream": "http://a.files.bbci.co.uk/media/live/manifesto/audio/simulcast/hls/uk/sbr_high/ak/bbc_radio_fourfm.m3u8",
-    "website": "https://www.bbc.co.uk/radio4",
+    "stream": "http://as-hls-ww-live.akamaized.net/pool_904/live/ww/bbc_radio_fourfm/bbc_radio_fourfm.isml/bbc_radio_fourfm-audio%3d96000.norewind.m3u8",
+    "website": "https://www.bbc.co.uk/sounds/play/live:bbc_radio_fourfm",
     "tags": [
       "bbc",
       "news"
@@ -63,42 +63,24 @@
   },
   {
     "name": "BBC Radio 4LW",
-    "stream": "http://a.files.bbci.co.uk/media/live/manifesto/audio/simulcast/hls/uk/sbr_high/ak/bbc_radio_fourlw.m3u8",
-    "website": "https://www.bbc.co.uk/radio4",
+    "stream": "http://as-hls-ww-live.akamaized.net/pool_904/live/ww/bbc_radio_fourlw/bbc_radio_fourlw.isml/bbc_radio_fourlw-audio%3d96000.norewind.m3u8",
+    "website": "https://www.bbc.co.uk/sounds/play/live:bbc_radio_fourfm",
     "tags": [
       "bbc"
     ]
   },
   {
     "name": "BBC Radio 4 Extra",
-    "stream": "http://a.files.bbci.co.uk/media/live/manifesto/audio/simulcast/hls/uk/sbr_high/ak/bbc_radio_four_extra.m3u8",
-    "website": "https://www.bbc.co.uk/radio4extra",
+    "stream": "http://as-hls-ww-live.akamaized.net/pool_904/live/ww/bbc_radio_four_extra/bbc_radio_four_extra.isml/bbc_radio_four_extra-audio%3d96000.norewind.m3u8",
+    "website": "https://www.bbc.co.uk/sounds/play/live:bbc_radio_four_extra",
     "tags": [
       "bbc"
     ]
   },
   {
-    "name": "BBC Radio 5 Live",
-    "stream": "http://a.files.bbci.co.uk/media/live/manifesto/audio/simulcast/hls/uk/sbr_high/ak/bbc_radio_five_live.m3u8",
-    "website": "https://www.bbc.co.uk/5live",
-    "tags": [
-      "bbc",
-      "sports"
-    ]
-  },
-  {
-    "name": "BBC Radio 5 Live Sports Extra",
-    "stream": "http://a.files.bbci.co.uk/media/live/manifesto/audio/simulcast/hls/uk/sbr_high/ak/bbc_radio_five_live_sports_extra.m3u8",
-    "website": "https://www.bbc.co.uk/5sportsextra",
-    "tags": [
-      "bbc",
-      "sports"
-    ]
-  },
-  {
     "name": "BBC Radio 6 Music",
-    "stream": "http://a.files.bbci.co.uk/media/live/manifesto/audio/simulcast/hls/uk/sbr_high/ak/bbc_6music.m3u8",
-    "website": "https://www.bbc.co.uk/6music",
+    "stream": "http://as-hls-ww-live.akamaized.net/pool_904/live/ww/bbc_6music/bbc_6music.isml/bbc_6music-audio%3d96000.norewind.m3u8",
+    "website": "https://www.bbc.co.uk/sounds/play/live:bbc_6music",
     "tags": [
       "bbc",
       "music"
@@ -187,8 +169,8 @@
   },
   {
     "name": "Magic",
-    "stream": "https://stream-mz.planetradio.co.uk/magicnational.aac",
-    "website": "https://planetradio.co.uk/magic/player/",
+    "stream": "https://stream-mz.planetradio.co.uk/magicnational.aac?direct=true&aw_0_1st.playerid=BMUK_inpage_html5&aw_0_1st.skey=1708726202&aw_0_1st.bauer_loggedin=false&aw_0_req.userConsentV2=false&aw_0_1st.octave_covatic=9999",
+    "website": "https://planetradio.co.uk/magic/play/",
     "tags": [
       "music"
     ]
